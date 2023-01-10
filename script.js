@@ -6,44 +6,103 @@ getComputerChoice = () => {
     return move;
 };
 
-
-
 const getPlayerChoice = () => {
     let choice = prompt('Please choose: Rock, Paper or Scissors');
     choice = choice.toLowerCase();
-    if (choice.toLowerCase() != 'rock' && choice.toLowerCase()!= 'scissors' && choice.toLowerCase()!= 'paper') {
+    if (choice!= 'rock' && choice!= 'scissors' && choice!= 'paper') {
         alert('Please make sure you have spelled your choice correctly');
-        choice = prompt('Please choose: Rock, Paper or Scissors');
-
+        getPlayerChoice();
     } else {
         return choice;
     }
 };
 
+let playerScore = 0;
+let computerScore = 0;
 
-let computerMove = getComputerChoice();
-let playerMove = getPlayerChoice();
+playRound = () => {
 
+    let computerMove = getComputerChoice();
+    let playerMove = getPlayerChoice();
 
-
-console.log('Computer chose ' + computerMove);
-
-playRound = (computer, player) => {
+    console.log('Computer chose: ' + computerMove + ' and you chose: ' + playerMove);
     if(computerMove == playerMove) {
+        console.log('tie round');
         return "its a tie"
-    } else if (
-        playerMove == 'rock' && computerMove == 'scissors') {
-            return 'you win'
-    } else if (
-        playerMove == 'paper' && computerMove == 'rock') {
-            return 'you win'
-    } else if (
-        playerMove == 'scissors' && computerMove == 'paper') {
-            return 'you win'
-    } else {
-        return 'you lose'
+    } 
+    if (playerMove === 'rock' && computerMove === 'scissors' || playerMove === 'paper' && computerMove === 'rock' || playerMove === 'scissors' && computerMove === 'paper') {
+            console.log('point to player')
+            playerScore ++;
+            return 'you win';
+    } 
+    else {
+        console.log('point to computer')
+        computerScore ++;
+        return 'you lose';
     }
-        
-    
 }
-console.log(playRound(computerMove, playerMove));
+
+
+game = () => {
+    playerScore = 0;
+    computerScore = 0;
+    while (playerScore < 3 && computerScore < 3) {
+        console.log('player: ' + playerScore + ' computer: ' + computerScore);
+        playRound();
+    }
+    console.log('player: ' + playerScore + ' computer: ' + computerScore);
+    if (playerScore === 3){
+        alert('You win!');
+        return 'winner = player';
+    }
+    if (computerScore === 3) {
+        alert('Computer wins!');
+        return 'winner = computer';
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// game = () => {
+//     let playerScore = 0;
+//     let computerScore = 0;
+//     while (computerScore != 3 && playerScore != 3) {
+//         playRound();
+//         console.log('Score:  comp: ' + computerScore + ' you: ' + playerScore)
+//         if (playerScore == 3) {
+//             alert('YOU WIN')
+//             return;
+//         } if (computerScore == 3) {
+//             alert('YOU LOSE')
+//             return;
+//         }
+//         if (playRound() == 'you win') {
+//             playerScore ++;
+//             console.log('you win, your score: ' + playerScore + ' computer score: ' + computerScore) 
+//         }
+//         if (playRound() == 'you lose') {
+//             computerScore ++;
+//             console.log('you lose, your score: ' + playerScore + ' computer score: ' + computerScore)
+//         }
+//     } 
+// }
