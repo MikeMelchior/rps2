@@ -7,10 +7,24 @@ getComputerChoice = () => {
 };
 
 
-let playerChoice = prompt('Please choose: Rock, Paper or Scissors');
+
+const getPlayerChoice = () => {
+    let choice = prompt('Please choose: Rock, Paper or Scissors');
+    choice = choice.toLowerCase();
+    if (choice.toLowerCase() != 'rock' && choice.toLowerCase()!= 'scissors' && choice.toLowerCase()!= 'paper') {
+        alert('Please make sure you have spelled your choice correctly');
+        choice = prompt('Please choose: Rock, Paper or Scissors');
+
+    } else {
+        return choice;
+    }
+};
+
 
 let computerMove = getComputerChoice();
-let playerMove = playerChoice
+let playerMove = getPlayerChoice();
+
+
 
 console.log('Computer chose ' + computerMove);
 
@@ -32,10 +46,4 @@ playRound = (computer, player) => {
         
     
 }
-console.log(playRound(computerMove, playerMove))
-
-/*computerChoice = getComputerChoice();
-console.log(getComputerChoice());
-
-
-*/
+console.log(playRound(computerMove, playerMove));
