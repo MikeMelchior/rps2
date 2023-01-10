@@ -7,3 +7,12 @@ body {
     width: 100vw;
     background-color: honeydew;
 }
+
+.button-container {
+    text-align: center;
+}
+
+.play-button {
+    width: 30vw;
+    font-size: 4vw;
+}
