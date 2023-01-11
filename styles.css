@@ -11,8 +11,28 @@ body {
 .button-container {
     text-align: center;
 }
-
+/* 
 .play-button {
     width: 30vw;
     font-size: 4vw;
+} */
+
+.rps-button {
+    width: 15vw;
+    height: 12vh;
+    background-color: red;
+    font-size: 2vw;
+    border-radius: 5%;
+    margin: 3vw;
+}
+
+.score-card {
+    display: flex;
+    justify-content: center;
+}
+
+.score-container {
+    margin: 5vw;
+    text-align: center;
+    font-size: 2em;
 }
